@@ -20,7 +20,7 @@ def webhook():
     #msg =  req.get("queryResult").get("queryText")
     #info = "動作：" + action + "； 查詢內容：" + msg
     if (action == "fangeChoice"):
-        rate =  req.get("queryResult").get("parameters").get("fange")
+        fange =  req.get("queryResult").get("parameters").get("fange")
         info = "您想查詢的飲料是：" + fange
     return make_response(jsonify({"fulfillmentText": info}))
 
