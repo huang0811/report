@@ -34,6 +34,7 @@ def webhook():
     collection_ref = db.collection("drink")
     docs = collection_ref.get()
     result = ""
+    info = ""
     for doc in docs:
         dict = doc.to_dict()
         if fange in dict["name"]:
