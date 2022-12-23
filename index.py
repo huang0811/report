@@ -39,6 +39,6 @@ def webhook():
         dict = doc.to_dict()
         if fange in dict["name"]:
             result += "飲料:" + dict["name"] + "\n"
-            result += "價錢:" + dict["price"] + "\n\n"
-    info += result
+            result += "價錢:" + dict["price"] + "元\n\n"
+    info += result + "\n" + "點餐網址:https://noder.tw:4040/#/ \n請記得先註冊登入喔!"
     return make_response(jsonify({"fulfillmentText": info}))
