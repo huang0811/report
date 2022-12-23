@@ -40,4 +40,4 @@ def webhook():
             result += "飲料:" + dict["name"] + "\n\n"
             result += "價錢:" + dict["price"] + "\n\n"
         info += result
-        return make_response(jsonify({"fulfillmentText": info}))
+    return make_response(jsonify({"fulfillmentText": info}))
