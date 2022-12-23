@@ -41,4 +41,9 @@ def webhook():
             result += "飲料:" + dict["name"] + "\n"
             result += "價錢:" + dict["price"] + "元\n"
     info += result + "\n" + "點餐網址:https://noder.tw:4040/#/ \n請記得先註冊登入喔!"
+    elif (action == "drinkDetail"): 
+        cond =  req.get("queryResult").get("parameters").get("inliau")
+        keyword =  req.get("queryResult").get("parameters").get("any")
+        info = "您要查詢電影的" + cond + "，關鍵字是：" + keyword + "\n\n"
+
     return make_response(jsonify({"fulfillmentText": info}))
