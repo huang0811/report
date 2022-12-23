@@ -31,18 +31,14 @@ def webhook():
     
 #if __name__ == "__main__":
 #    app.run()
-        collection_ref = db.collection("drink")
-        docs = collection_ref.get()
-        result = ""
-        info = ""
-        for doc in docs:
-            dict = doc.to_dict()
-            if fange in dict["name"]:
-                result += "飲料:" + dict["name"] + "\n"
-                result += "價錢:" + dict["price"] + "元\n\N"
-        info += result + "\n" + "點餐網址:https://noder.tw:4040/#/ \n請記得先註冊登入喔!"
-    elif (action == "drinkDetail"): 
-        cond =  req.get("queryResult").get("parameters").get("inliau")
-        keyword =  req.get("queryResult").get("parameters").get("any")
-        info = "您想查詢的" + cond + "，關鍵字是：" + keyword + "\n\n"
+    collection_ref = db.collection("drink")
+    docs = collection_ref.get()
+    result = ""
+    info = ""
+    for doc in docs:
+        dict = doc.to_dict()
+        if fange in dict["name"]:
+            result += "飲料:" + dict["name"] + "\n"
+            result += "價錢:" + dict["price"] + "元\n"
+    info += result + "\n" + "點餐網址:https://noder.tw:4040/#/ \n請記得先註冊登入喔!"
     return make_response(jsonify({"fulfillmentText": info}))
